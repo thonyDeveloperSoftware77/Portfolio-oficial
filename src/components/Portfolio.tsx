@@ -9,10 +9,12 @@ import EducationSection from './sections/EducationSection'
 import ContactSection from './sections/ContactSection'
 import ParticlesBackground from './ParticlesBackground'
 import Navigation from './Navigation'
+import SEO from './SEO'
 
 const Portfolio = () => {
   return (
     <div className="relative min-h-screen">
+      <SEO />
       <ParticlesBackground />
       <Navigation />
       

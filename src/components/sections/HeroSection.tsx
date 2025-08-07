@@ -29,7 +29,17 @@ const HeroSection = () => {
   }
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center px-4 pt-20">
+    <section 
+      id="hero" 
+      className="min-h-screen flex items-center justify-center px-4 pt-20"
+      aria-label="Presentación de Anthony Cochea"
+    >
+      {/* Hidden content for SEO */}
+      <div className="sr-only">
+        <h1>Anthony Cochea - Full Stack Developer en Quito, Ecuador</h1>
+        <p>Ingeniero de Software graduado de la Universidad de Las Américas (UDLA), especializado en desarrollo Full Stack con React, Node.js, TypeScript, Go y tecnologías modernas.</p>
+        <p>Ubicado en Quito, Ecuador. 4+ años de experiencia en desarrollo web, aplicaciones móviles y soluciones cloud.</p>
+      </div>
       <motion.div
         variants={containerVariants}
         initial="hidden"
