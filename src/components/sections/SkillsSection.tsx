@@ -1,10 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Card, CardBody, Chip, Button } from '@heroui/react'
-import { Code, Smartphone, Server, Database, Cloud, Monitor, Cpu, Shield, BarChart3, MessageSquare, Download } from 'lucide-react'
-import html2canvas from 'html2canvas'
-import { useRef } from 'react'
+import { Card, CardBody, Chip } from '@heroui/react'
+import { Code, Smartphone, Server, Database, Cloud, Monitor, Cpu, Shield, BarChart3, MessageSquare } from 'lucide-react'
 import { 
   NestIcon, 
   JavascriptIcon, 
@@ -49,7 +47,6 @@ import {
   AntdIcon,
   FigmaIcon
 } from '../../assets/icons/icons';
-
 type SkillColor = "primary" | "secondary" | "success" | "warning" | "danger" | "default" | undefined;
 
 type Skill = {
@@ -66,50 +63,6 @@ type SkillCategory = {
 };
 
 const SkillsSection = () => {
-  const cardRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
-
-  const downloadCardAsImage = async (categoryTitle: string) => {
-    const cardElement = cardRefs.current[categoryTitle]
-    if (!cardElement) return
-
-    try {
-      // Configuración para alta calidad
-      const canvas = await html2canvas(cardElement, {
-        scale: 3, // Aumentar la escala para mayor resolución
-        useCORS: true,
-        allowTaint: true,
-        backgroundColor: '#ffffff',
-        width: cardElement.offsetWidth,
-        height: cardElement.offsetHeight,
-        windowWidth: cardElement.offsetWidth,
-        windowHeight: cardElement.offsetHeight,
-        logging: false,
-        imageTimeout: 0,
-        removeContainer: true,
-        foreignObjectRendering: true,
-        onclone: (clonedDoc) => {
-          // Asegurar que los estilos se mantengan en el clon
-          const clonedCard = clonedDoc.querySelector(`[data-card="${categoryTitle}"]`) as HTMLElement
-          if (clonedCard) {
-            clonedCard.style.transform = 'none'
-            clonedCard.style.transition = 'none'
-            clonedCard.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
-          }
-        }
-      })
-
-      // Crear enlace de descarga
-      const link = document.createElement('a')
-      link.download = `skills-${categoryTitle.toLowerCase().replace(/\s+/g, '-')}-anthony-cochea.png`
-      link.href = canvas.toDataURL('image/png', 1.0)
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
-    } catch (error) {
-      console.error('Error al generar la imagen:', error)
-    }
-  }
-
   const skillCategories: SkillCategory[] = [
     {
       icon: Code,
@@ -250,70 +203,46 @@ const SkillsSection = () => {
                 transition={{ duration: 0.8, delay: categoryIndex * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div 
-                  ref={(el) => cardRefs.current[category.title] = el}
-                  data-card={category.title}
-                  className="relative"
-                >
-                  <Card className="h-full shadow-xl hover:shadow-2xl transition-all duration-300 border-0 group hover:scale-105">
-                    <CardBody className="p-6">
-                      <div className="flex items-center justify-between mb-6">
-                        <div className="flex items-center gap-3">
-                          <div className={`p-3 rounded-full bg-gradient-to-r ${category.color} group-hover:scale-110 transition-transform duration-300`}>
-                            <Icon className="w-6 h-6 text-white" />
-                          </div>
-                          <h3 className="text-xl font-bold text-gray-800">{category.title}</h3>
-                        </div>
-                        <Button
-                          isIconOnly
-                          variant="flat"
-                          color="primary"
-                          size="sm"
-                          className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:scale-110"
-                          onClick={() => downloadCardAsImage(category.title)}
-                          title={`Descargar ${category.title} como imagen`}
-                        >
-                          <Download className="w-4 h-4" />
-                        </Button>
+                <Card className="h-full shadow-xl hover:shadow-2xl transition-all duration-300 border-0 group hover:scale-105">
+                  <CardBody className="p-6">
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className={`p-3 rounded-full bg-gradient-to-r ${category.color} group-hover:scale-110 transition-transform duration-300`}>
+                        <Icon className="w-6 h-6 text-white" />
                       </div>
-                      
-                      <div className="space-y-4">
-                        {category.skills.map((skill, skillIndex) => {
-                          const SkillIcon = skill.icon
-                          return (
-                            <motion.div
-                              key={`${category.title}-${skill.name}-${skillIndex}`}
-                              initial={{ opacity: 0, x: -20 }}
-                              whileInView={{ opacity: 1, x: 0 }}
-                              transition={{ duration: 0.6, delay: (categoryIndex * 0.1) + (skillIndex * 0.05) }}
-                              viewport={{ once: true }}
-                            >
-                              <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 group/skill">
-                                <div className="w-8 h-8 flex items-center justify-center">
-                                  <SkillIcon className="w-full h-full" />
-                                </div>
-                                <span className="text-gray-700 font-medium flex-1">{skill.name}</span>
-                                <Chip
-                                  size="sm"
-                                  color={skill.color}
-                                  variant="flat"
-                                  className="opacity-80 group-hover/skill:opacity-100 transition-opacity"
-                                >
-                                  Tech
-                                </Chip>
+                      <h3 className="text-xl font-bold text-gray-800">{category.title}</h3>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      {category.skills.map((skill, skillIndex) => {
+                        const SkillIcon = skill.icon
+                        return (
+                          <motion.div
+                            key={`${category.title}-${skill.name}-${skillIndex}`}
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.6, delay: (categoryIndex * 0.1) + (skillIndex * 0.05) }}
+                            viewport={{ once: true }}
+                          >
+                            <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 group">
+                              <div className="w-8 h-8 flex items-center justify-center">
+                                <SkillIcon className="w-full h-full" />
                               </div>
-                            </motion.div>
-                          )
-                        })}
-                      </div>
-
-                      {/* Watermark sutil para la imagen descargada */}
-                      <div className="mt-4 text-center opacity-40">
-                        <p className="text-xs text-gray-500">Anthony Cochea - Portafolio</p>
-                      </div>
-                    </CardBody>
-                  </Card>
-                </div>
+                              <span className="text-gray-700 font-medium flex-1">{skill.name}</span>
+                              <Chip
+                                size="sm"
+                                color={skill.color}
+                                variant="flat"
+                                className="opacity-80 group-hover:opacity-100 transition-opacity"
+                              >
+                                Tech
+                              </Chip>
+                            </div>
+                          </motion.div>
+                        )
+                      })}
+                    </div>
+                  </CardBody>
+                </Card>
               </motion.div>
             )
           })}
@@ -334,10 +263,10 @@ const SkillsSection = () => {
               <div className="relative z-10">
                 <div className="flex items-center justify-center gap-3 mb-6">
                   <Cpu className="w-8 h-8 text-white" />
-                  <h3 className="text-2xl font-bold text-white">Especialización ERP & Sistemas</h3>
+                  <h3 className="text-2xl font-bold text-white">ERP & Sistemas</h3>
                 </div>
                 <p className="text-gray-300 mb-6">
-                  Experiencia especializada en integración y desarrollo con sistemas ERP empresariales y herramientas de gestión
+                  Experiencia en integración y desarrollo con sistemas ERP empresariales y herramientas de gestión
                 </p>
                 <div className="flex flex-wrap justify-center gap-3">
                   <Chip

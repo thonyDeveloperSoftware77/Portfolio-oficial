@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Avatar, Button, Chip } from '@heroui/react'
-import { Download, Github, Linkedin, Mail, MapPin, Star, Zap, Trophy } from 'lucide-react'
+import { Download, ExternalLink, Mail, MapPin, Star, Zap, Trophy, User } from 'lucide-react'
 
 const HeroSection = () => {
   const containerVariants = {
@@ -39,8 +39,8 @@ const HeroSection = () => {
         <motion.div variants={itemVariants} className="mb-8 relative">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-600 rounded-full blur-3xl opacity-30 animate-pulse"></div>
           <Avatar
-            src="/placeholder.svg?height=200&width=200"
-            className="w-40 h-40 mx-auto mb-6 ring-4 ring-white/30 shadow-2xl float relative z-10"
+            src="/me.png"
+            className="w-40 h-40 mx-auto mb-6 ring-4 ring-white/50 shadow-2xl float relative z-10"
             name="Anthony Cochea"
           />
           <div className="absolute -top-2 -right-2 z-20">
@@ -52,7 +52,7 @@ const HeroSection = () => {
 
         <motion.div variants={itemVariants} className="mb-6">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
-            Anthony <span className="gradient-text bg-gradient-to-r from-yellow-400 to-pink-500 bg-clip-text text-transparent">Cochea</span>
+            Anthony <span className="gradient-text bg-gradient-to-r from-cyan-300 to-emerald-300 bg-clip-text text-transparent font-extrabold drop-shadow-lg">Cochea</span>
           </h1>
           <div className="flex items-center justify-center gap-4 mb-4 flex-wrap">
             <Chip
@@ -97,6 +97,10 @@ const HeroSection = () => {
             variant="solid"
             startContent={<Download className="w-5 h-5" />}
             className="bg-white text-gray-800 hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl font-semibold px-8 py-3"
+            as="a"
+            href="/CV.pdf"
+            download="Anthony_Cochea_CV.pdf"
+            target="_blank"
           >
             Descargar CV
           </Button>
@@ -104,10 +108,10 @@ const HeroSection = () => {
           <Button
             size="lg"
             variant="bordered"
-            startContent={<Github className="w-5 h-5" />}
+            startContent={<ExternalLink className="w-5 h-5" />}
             className="border-white/30 text-white hover:bg-white/10 transition-all duration-300 px-6"
             as="a"
-            href="https://github.com"
+            href="https://github.com/thonyDeveloperSoftware77"
             target="_blank"
           >
             GitHub
@@ -116,10 +120,10 @@ const HeroSection = () => {
           <Button
             size="lg"
             variant="bordered"
-            startContent={<Linkedin className="w-5 h-5" />}
+            startContent={<User className="w-5 h-5" />}
             className="border-white/30 text-white hover:bg-white/10 transition-all duration-300 px-6"
             as="a"
-            href="https://linkedin.com"
+            href="https://linkedin.com/in/anthony-cochea-llll-lll"
             target="_blank"
           >
             LinkedIn
@@ -145,11 +149,11 @@ const HeroSection = () => {
             { number: "4+", label: "Años de Experiencia", icon: Trophy, color: "from-yellow-400 to-orange-500" },
             { number: "15+", label: "Proyectos Completados", icon: Star, color: "from-green-400 to-blue-500" },
             { number: "6+", label: "Tecnologías Dominadas", icon: Zap, color: "from-purple-400 to-pink-500" }
-          ].map((stat, index) => {
+          ].map((stat) => {
             const Icon = stat.icon
             return (
               <motion.div
-                key={index}
+                key={stat.label}
                 whileHover={{ scale: 1.05, y: -5 }}
                 className="glass p-6 rounded-2xl text-center group hover:bg-white/20 transition-all duration-300"
               >
