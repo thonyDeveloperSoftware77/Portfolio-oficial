@@ -19,7 +19,7 @@ Bienvenido a mi portafolio profesional, donde muestro quién soy, mi experiencia
 ## 🧑‍💻 Perfil Profesional
 
 **Anthony Cochea**  
-Ingeniero de Software con más de 4 años de experiencia en desarrollo Fullstack, especializado en soluciones web y móviles, desde la concepción hasta el despliegue en producción.
+Ingeniero de Software con más de 3 años de experiencia en desarrollo Fullstack, especializado en soluciones web y móviles, desde la concepción hasta el despliegue en producción.
 
 **🛠️ Especializado en:**
 

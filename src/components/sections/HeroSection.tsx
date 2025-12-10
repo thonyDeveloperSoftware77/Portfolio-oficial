@@ -1,8 +1,17 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { Avatar, Button, Chip } from '@heroui/react'
-import { Download, ExternalLink, Mail, MapPin, Star, Zap, Trophy, User } from 'lucide-react'
+import { motion } from "framer-motion";
+import { Avatar, Button, Chip } from "@heroui/react";
+import {
+  Download,
+  ExternalLink,
+  Mail,
+  MapPin,
+  Star,
+  Zap,
+  Trophy,
+  User,
+} from "lucide-react";
 
 const HeroSection = () => {
   const containerVariants = {
@@ -11,10 +20,10 @@ const HeroSection = () => {
       opacity: 1,
       transition: {
         delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
-  }
+        staggerChildren: 0.2,
+      },
+    },
+  };
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
@@ -23,22 +32,29 @@ const HeroSection = () => {
       opacity: 1,
       transition: {
         duration: 0.8,
-        ease: "easeOut" as const // use a valid easing keyword
-      }
-    }
-  }
+        ease: "easeOut" as const, // use a valid easing keyword
+      },
+    },
+  };
 
   return (
-    <section 
-      id="hero" 
+    <section
+      id="hero"
       className="min-h-screen flex items-center justify-center px-4 pt-20"
       aria-label="Presentación de Anthony Cochea"
     >
       {/* Hidden content for SEO */}
       <div className="sr-only">
         <h1>Anthony Cochea - Full Stack Developer en Quito, Ecuador</h1>
-        <p>Ingeniero de Software graduado de la Universidad de Las Américas (UDLA), especializado en desarrollo Full Stack con React, Node.js, TypeScript, Go y tecnologías modernas.</p>
-        <p>Ubicado en Quito, Ecuador. 4+ años de experiencia en desarrollo web, aplicaciones móviles y soluciones cloud.</p>
+        <p>
+          Ingeniero de Software graduado de la Universidad de Las Américas
+          (UDLA), especializado en desarrollo Full Stack con React, Node.js,
+          TypeScript, Go y tecnologías modernas.
+        </p>
+        <p>
+          Ubicado en Quito, Ecuador. 3+ años de experiencia en desarrollo web,
+          aplicaciones móviles y soluciones cloud.
+        </p>
       </div>
       <motion.div
         variants={containerVariants}
@@ -62,7 +78,10 @@ const HeroSection = () => {
 
         <motion.div variants={itemVariants} className="mb-6">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
-            Anthony <span className="gradient-text bg-gradient-to-r from-cyan-300 to-emerald-300 bg-clip-text text-transparent font-extrabold drop-shadow-lg">Cochea</span>
+            Anthony{" "}
+            <span className="gradient-text bg-gradient-to-r from-cyan-300 to-emerald-300 bg-clip-text text-transparent font-extrabold drop-shadow-lg">
+              Cochea
+            </span>
           </h1>
           <div className="flex items-center justify-center gap-4 mb-4 flex-wrap">
             <Chip
@@ -83,7 +102,7 @@ const HeroSection = () => {
               className="bg-green-500/20 text-green-100 backdrop-blur-md"
               startContent={<Trophy className="w-4 h-4" />}
             >
-              4+ años exp
+              3+ años exp
             </Chip>
           </div>
         </motion.div>
@@ -92,9 +111,12 @@ const HeroSection = () => {
           variants={itemVariants}
           className="text-xl md:text-2xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed"
         >
-          Ingeniero de Software especializado en crear{' '}
-          <span className="font-bold text-yellow-300">soluciones innovadoras</span> que transforman ideas 
-          en productos digitales extraordinarios. Experto en arquitectura moderna y desarrollo fullstack.
+          Ingeniero de Software especializado en crear{" "}
+          <span className="font-bold text-yellow-300">
+            soluciones innovadoras
+          </span>{" "}
+          que transforman ideas en productos digitales extraordinarios. Experto
+          en arquitectura moderna y desarrollo fullstack.
         </motion.p>
 
         <motion.div
@@ -114,7 +136,7 @@ const HeroSection = () => {
           >
             Descargar CV
           </Button>
-          
+
           <Button
             size="lg"
             variant="bordered"
@@ -126,7 +148,7 @@ const HeroSection = () => {
           >
             GitHub
           </Button>
-          
+
           <Button
             size="lg"
             variant="bordered"
@@ -138,7 +160,7 @@ const HeroSection = () => {
           >
             LinkedIn
           </Button>
-          
+
           <Button
             size="lg"
             variant="bordered"
@@ -156,37 +178,57 @@ const HeroSection = () => {
           className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
         >
           {[
-            { number: "4+", label: "Años de Experiencia", icon: Trophy, color: "from-yellow-400 to-orange-500" },
-            { number: "15+", label: "Proyectos Completados", icon: Star, color: "from-green-400 to-blue-500" },
-            { number: "6+", label: "Tecnologías Dominadas", icon: Zap, color: "from-purple-400 to-pink-500" }
+            {
+              number: "3+",
+              label: "Años de Experiencia",
+              icon: Trophy,
+              color: "from-yellow-400 to-orange-500",
+            },
+            {
+              number: "15+",
+              label: "Proyectos Completados",
+              icon: Star,
+              color: "from-green-400 to-blue-500",
+            },
+            {
+              number: "6+",
+              label: "Tecnologías Dominadas",
+              icon: Zap,
+              color: "from-purple-400 to-pink-500",
+            },
           ].map((stat) => {
-            const Icon = stat.icon
+            const Icon = stat.icon;
             return (
               <motion.div
                 key={stat.label}
                 whileHover={{ scale: 1.05, y: -5 }}
                 className="glass p-6 rounded-2xl text-center group hover:bg-white/20 transition-all duration-300"
               >
-                <div className={`inline-flex p-3 rounded-full bg-gradient-to-r ${stat.color} mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                <div
+                  className={`inline-flex p-3 rounded-full bg-gradient-to-r ${stat.color} mb-4 group-hover:scale-110 transition-transform duration-300`}
+                >
                   <Icon className="w-6 h-6 text-white" />
                 </div>
-                <div className="text-3xl font-bold text-white mb-2">{stat.number}</div>
+                <div className="text-3xl font-bold text-white mb-2">
+                  {stat.number}
+                </div>
                 <div className="text-white/80">{stat.label}</div>
               </motion.div>
-            )
+            );
           })}
         </motion.div>
 
-        <motion.div
-          variants={itemVariants}
-          className="mt-16"
-        >
+        <motion.div variants={itemVariants} className="mt-16">
           <div className="flex justify-center">
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
               className="text-white/60 cursor-pointer"
-              onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() =>
+                document
+                  .getElementById("about")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
             >
               <div className="flex flex-col items-center gap-2">
                 <span className="text-sm">Descubre más</span>
@@ -199,7 +241,7 @@ const HeroSection = () => {
         </motion.div>
       </motion.div>
     </section>
-  )
-}
+  );
+};
 
-export default HeroSection
+export default HeroSection;

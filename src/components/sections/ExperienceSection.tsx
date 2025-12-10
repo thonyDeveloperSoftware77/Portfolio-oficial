@@ -1,14 +1,77 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Card, CardBody, Button, Chip, Divider } from '@heroui/react'
-import { Briefcase, ChevronDown, ChevronUp, Calendar, MapPin, Building } from 'lucide-react'
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Card, CardBody, Button, Chip, Divider } from "@heroui/react";
+import {
+  Briefcase,
+  ChevronDown,
+  ChevronUp,
+  Calendar,
+  MapPin,
+  Building,
+} from "lucide-react";
 
 const ExperienceSection = () => {
-  const [expandedExperience, setExpandedExperience] = useState<number | null>(null)
+  const [expandedExperience, setExpandedExperience] = useState<number | null>(
+    null,
+  );
 
   const experiences = [
+    {
+      title: "Fullstack Developer",
+      company: "Pixado Canada",
+      period: "2025",
+      location: "Remoto",
+      type: "Proyecto",
+      description: [
+        "Rol Full Stack: Creación del Frontend con React y del Backend basado en Xano",
+        "Pipeline de Generación de Contenido: Implementación del sistema de Workers y la cola RabbitMQ",
+        "Sitio de generación de libros infantiles dinámico con inteligencia artificial",
+      ],
+      details: [
+        "Orquestación y ejecución eficiente de tareas de Generación de Texto e Imagen (AI)",
+        "Transformación de entrada del usuario en libro final completo",
+        "Sistema de workers distribuidos para procesamiento paralelo",
+        "Integración de múltiples APIs de inteligencia artificial",
+      ],
+      technologies: [
+        "React",
+        "Xano",
+        "RabbitMQ",
+        "AI/ML",
+        "Workers",
+        "TypeScript",
+      ],
+      color: "from-blue-500 to-cyan-500",
+    },
+    {
+      title: "Frontend Developer",
+      company: "AS2 Gateway",
+      period: "2025",
+      location: "Remoto",
+      type: "Proyecto",
+      description: [
+        "Desarrollo de Interfaz: Creación del Frontend con React para la plataforma interna de envío de documentos EDI (protocolo AS2)",
+        "Uso de Tailwind CSS y Ant Design para la arquitectura de la UI",
+        "Funcionalidades: Implementación de Dashboards, Reportes y Registros detallados",
+      ],
+      details: [
+        "Sistema crucial para el monitoreo y la gestión de transacciones con socios comerciales",
+        "Dashboards interactivos con métricas en tiempo real",
+        "Sistema de reportes automatizados y exportación de datos",
+        "Interfaz optimizada para gestión de documentos EDI",
+      ],
+      technologies: [
+        "React",
+        "Tailwind CSS",
+        "Ant Design",
+        "TypeScript",
+        "EDI",
+        "AS2 Protocol",
+      ],
+      color: "from-purple-500 to-pink-500",
+    },
     {
       title: "Fullstack Developer",
       company: "Aqua Manager s.a.s",
@@ -18,16 +81,22 @@ const ExperienceSection = () => {
       description: [
         "Desarrollo en React y React Native para aplicaciones web y móviles",
         "Integración completa con ERP iDempiere para gestión empresarial",
-        "Implementación de módulos de reportería, producción, inventario y costos"
+        "Implementación de módulos de reportería, producción, inventario y costos",
       ],
       details: [
         "PostgreSQL como motor de base de datos principal",
         "Desarrollo de mapas de trazabilidad de procesos productivos",
         "Implementación de funcionalidades offline con sincronización automática",
-        "Optimización de consultas y rendimiento de aplicaciones"
+        "Optimización de consultas y rendimiento de aplicaciones",
       ],
-      technologies: ["React", "React Native", "PostgreSQL", "iDempiere", "Node.js"],
-      color: "from-blue-500 to-cyan-500"
+      technologies: [
+        "React",
+        "React Native",
+        "PostgreSQL",
+        "iDempiere",
+        "Node.js",
+      ],
+      color: "from-green-500 to-teal-500",
     },
     {
       title: "Fullstack Developer",
@@ -38,15 +107,21 @@ const ExperienceSection = () => {
       description: [
         "Desarrollo de backend robusto con Nest.js y arquitectura escalable",
         "Creación de aplicación móvil nativa con React Native",
-        "Desarrollo de aplicaciones administrativas con Next.js"
+        "Desarrollo de aplicaciones administrativas con Next.js",
       ],
       details: [
         "Diseño e implementación de base de datos estructurada en PostgreSQL",
         "Sistema de notificaciones push en tiempo real",
-        "Implementación de métricas analíticas y dashboard de administración"
+        "Implementación de métricas analíticas y dashboard de administración",
       ],
-      technologies: ["Nest.js", "React Native", "Next.js", "PostgreSQL", "TypeScript"],
-      color: "from-purple-500 to-pink-500"
+      technologies: [
+        "Nest.js",
+        "React Native",
+        "Next.js",
+        "PostgreSQL",
+        "TypeScript",
+      ],
+      color: "from-orange-500 to-red-500",
     },
     {
       title: "Fullstack Developer",
@@ -57,16 +132,16 @@ const ExperienceSection = () => {
       description: [
         "Plataforma innovadora de venta de celulares a crédito",
         "Backend de alto rendimiento desarrollado en Go con WebSockets",
-        "Aplicación móvil nativa desarrollada en Kotlin"
+        "Aplicación móvil nativa desarrollada en Kotlin",
       ],
       details: [
         "Sistema de bloqueo automático por impago integrado",
         "Desarrollo de servidor MDM para control remoto de dispositivos",
         "Despliegue en múltiples plataformas: Vercel, Render, Cloudflare",
-        "Implementación de sistema de pagos y gestión de créditos"
+        "Implementación de sistema de pagos y gestión de créditos",
       ],
       technologies: ["Go", "Kotlin", "WebSockets", "PostgreSQL", "Docker"],
-      color: "from-green-500 to-teal-500"
+      color: "from-indigo-500 to-purple-500",
     },
     {
       title: "Fullstack Developer",
@@ -77,16 +152,22 @@ const ExperienceSection = () => {
       description: [
         "Sistema de evaluación institucional para entes públicos",
         "Backend escalable con Node.js, Sequelize y Express",
-        "Frontend moderno y responsivo con Next.js + React"
+        "Frontend moderno y responsivo con Next.js + React",
       ],
       details: [
         "Implementación de gráficos dinámicos y mapas de riesgo interactivos",
         "Integración con autenticación Google OAuth 2.0",
         "SQL Server como motor de datos con optimizaciones avanzadas",
-        "Sistema de reportes automatizados y exportación de datos"
+        "Sistema de reportes automatizados y exportación de datos",
       ],
-      technologies: ["Node.js", "Next.js", "SQL Server", "Sequelize", "Google OAuth"],
-      color: "from-orange-500 to-red-500"
+      technologies: [
+        "Node.js",
+        "Next.js",
+        "SQL Server",
+        "Sequelize",
+        "Google OAuth",
+      ],
+      color: "from-cyan-500 to-blue-500",
     },
     {
       title: "Pasante de Desarrollo",
@@ -97,17 +178,23 @@ const ExperienceSection = () => {
       description: [
         "Desarrollo con arquitectura hexagonal y patrones de diseño",
         "Trabajo con base de datos SQL Server y procedimientos almacenados",
-        "Frontend con Angular y backend en C# .NET"
+        "Frontend con Angular y backend en C# .NET",
       ],
       details: [],
-      technologies: ["C#", "Angular", "SQL Server", ".NET", "Arquitectura Hexagonal"],
-      color: "from-indigo-500 to-purple-500"
-    }
-  ]
+      technologies: [
+        "C#",
+        "Angular",
+        "SQL Server",
+        ".NET",
+        "Arquitectura Hexagonal",
+      ],
+      color: "from-yellow-500 to-orange-500",
+    },
+  ];
 
   const toggleExperience = (index: number) => {
-    setExpandedExperience(expandedExperience === index ? null : index)
-  }
+    setExpandedExperience(expandedExperience === index ? null : index);
+  };
 
   return (
     <section id="experience" className="py-20 px-4 bg-gray-50">
@@ -123,7 +210,8 @@ const ExperienceSection = () => {
             Experiencia <span className="gradient-text">Profesional</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Más de 4 años construyendo soluciones tecnológicas innovadoras en diferentes industrias
+            Más de 3 años construyendo soluciones tecnológicas innovadoras en
+            diferentes industrias
           </p>
         </motion.div>
 
@@ -143,18 +231,24 @@ const ExperienceSection = () => {
                     <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-2">
-                          <div className={`p-2 rounded-full bg-gradient-to-r ${exp.color}`}>
+                          <div
+                            className={`p-2 rounded-full bg-gradient-to-r ${exp.color}`}
+                          >
                             <Briefcase className="w-5 h-5 text-white" />
                           </div>
                           <div>
-                            <h3 className="text-xl font-bold text-gray-800">{exp.title}</h3>
+                            <h3 className="text-xl font-bold text-gray-800">
+                              {exp.title}
+                            </h3>
                             <div className="flex items-center gap-2">
                               <Building className="w-4 h-4 text-gray-500" />
-                              <p className="text-lg text-gray-600 font-medium">{exp.company}</p>
+                              <p className="text-lg text-gray-600 font-medium">
+                                {exp.company}
+                              </p>
                             </div>
                           </div>
                         </div>
-                        
+
                         <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
                           <div className="flex items-center gap-1">
                             <Calendar className="w-4 h-4" />
@@ -178,10 +272,11 @@ const ExperienceSection = () => {
                           onPress={() => toggleExperience(index)}
                           className="group-hover:bg-gray-100"
                         >
-                          {expandedExperience === index ? 
-                            <ChevronUp className="w-5 h-5" /> : 
+                          {expandedExperience === index ? (
+                            <ChevronUp className="w-5 h-5" />
+                          ) : (
                             <ChevronDown className="w-5 h-5" />
-                          }
+                          )}
                         </Button>
                       )}
                     </div>
@@ -189,7 +284,9 @@ const ExperienceSection = () => {
                     <div className="space-y-2 mb-4">
                       {exp.description.map((desc, i) => (
                         <div key={i} className="flex items-start gap-3">
-                          <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${exp.color} mt-2 flex-shrink-0`}></div>
+                          <div
+                            className={`w-2 h-2 rounded-full bg-gradient-to-r ${exp.color} mt-2 flex-shrink-0`}
+                          ></div>
                           <p className="text-gray-700">{desc}</p>
                         </div>
                       ))}
@@ -197,32 +294,40 @@ const ExperienceSection = () => {
 
                     <div className="flex flex-wrap gap-2 mb-4">
                       {exp.technologies.map((tech, i) => (
-                        <Chip key={i} size="sm" variant="flat" color="secondary">
+                        <Chip
+                          key={i}
+                          size="sm"
+                          variant="flat"
+                          color="secondary"
+                        >
                           {tech}
                         </Chip>
                       ))}
                     </div>
 
                     <AnimatePresence>
-                      {expandedExperience === index && exp.details.length > 0 && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <Divider className="my-4" />
-                          <div className="space-y-2">
-                            <p className="font-medium text-gray-700 mb-3">Logros y detalles técnicos:</p>
-                            {exp.details.map((detail, i) => (
-                              <div key={i} className="flex items-start gap-3">
-                                <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
-                                <p className="text-gray-600">{detail}</p>
-                              </div>
-                            ))}
-                          </div>
-                        </motion.div>
-                      )}
+                      {expandedExperience === index &&
+                        exp.details.length > 0 && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            <Divider className="my-4" />
+                            <div className="space-y-2">
+                              <p className="font-medium text-gray-700 mb-3">
+                                Logros y detalles técnicos:
+                              </p>
+                              {exp.details.map((detail, i) => (
+                                <div key={i} className="flex items-start gap-3">
+                                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+                                  <p className="text-gray-600">{detail}</p>
+                                </div>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
                     </AnimatePresence>
                   </div>
                 </CardBody>
@@ -232,7 +337,7 @@ const ExperienceSection = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default ExperienceSection
+export default ExperienceSection;

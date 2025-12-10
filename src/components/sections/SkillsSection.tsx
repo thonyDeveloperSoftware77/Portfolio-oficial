@@ -1,24 +1,35 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { Card, CardBody, Chip } from '@heroui/react'
-import { Code, Smartphone, Server, Database, Cloud, Monitor, Cpu, Shield, BarChart3, MessageSquare } from 'lucide-react'
-import { 
-  NestIcon, 
-  JavascriptIcon, 
-  TypeScriptIcon, 
-  GoIcon, 
-  KotlinIcon, 
-  CSharpIcon, 
-  ReactIcon, 
-  NextJsIcon, 
-  AngularIcon, 
-  NodejsIcon, 
-  PostgreSQLIcon, 
-  SqlServerIcon, 
-  MongoDbIcon, 
-  DockerIcon, 
-  KubernetesIcon, 
+import { motion } from "framer-motion";
+import { Card, CardBody, Chip } from "@heroui/react";
+import {
+  Code,
+  Smartphone,
+  Server,
+  Database,
+  Cloud,
+  Monitor,
+  Cpu,
+  Shield,
+  BarChart3,
+  MessageSquare,
+} from "lucide-react";
+import {
+  NestIcon,
+  JavascriptIcon,
+  TypeScriptIcon,
+  GoIcon,
+  KotlinIcon,
+  CSharpIcon,
+  ReactIcon,
+  NextJsIcon,
+  AngularIcon,
+  NodejsIcon,
+  PostgreSQLIcon,
+  SqlServerIcon,
+  MongoDbIcon,
+  DockerIcon,
+  KubernetesIcon,
   VercelIcon,
   FlutterIcon,
   KeycloakIcon,
@@ -45,9 +56,17 @@ import {
   HonoIcon,
   GithubActionsIcon,
   AntdIcon,
-  FigmaIcon
-} from '../../assets/icons/icons';
-type SkillColor = "primary" | "secondary" | "success" | "warning" | "danger" | "default" | undefined;
+  FigmaIcon,
+  XanoIcon,
+} from "../../assets/icons/icons";
+type SkillColor =
+  | "primary"
+  | "secondary"
+  | "success"
+  | "warning"
+  | "danger"
+  | "default"
+  | undefined;
 
 type Skill = {
   name: string;
@@ -74,7 +93,7 @@ const SkillsSection = () => {
         { name: "Go", icon: GoIcon, color: "secondary" },
         { name: "Kotlin", icon: KotlinIcon, color: "success" },
         { name: "C#", icon: CSharpIcon, color: "warning" },
-      ]
+      ],
     },
     {
       icon: Monitor,
@@ -86,8 +105,8 @@ const SkillsSection = () => {
         { name: "Angular", icon: AngularIcon, color: "success" },
         { name: "TailwindCSS", icon: TailwindIcon, color: "warning" },
         { name: "Antd", icon: AntdIcon, color: "default" },
-        { name: "Figma", icon: FigmaIcon, color: "primary" }, 
-      ]
+        { name: "Figma", icon: FigmaIcon, color: "primary" },
+      ],
     },
     {
       icon: Server,
@@ -98,8 +117,9 @@ const SkillsSection = () => {
         { name: "Nest.js", icon: NestIcon, color: "primary" },
         { name: "Hono", icon: HonoIcon, color: "secondary" },
         { name: "Go", icon: GoIcon, color: "warning" },
-        { name: ".Net Core", icon: DotNetCOREIcon, color: "danger" }
-      ]
+        { name: ".Net Core", icon: DotNetCOREIcon, color: "danger" },
+        { name: "Xano", icon: XanoIcon, color: "primary" },
+      ],
     },
     {
       icon: Smartphone,
@@ -108,8 +128,8 @@ const SkillsSection = () => {
       skills: [
         { name: "React Native", icon: ReactIcon, color: "primary" },
         { name: "Kotlin", icon: KotlinIcon, color: "success" },
-        { name: "Flutter", icon: FlutterIcon, color: "warning" }
-      ]
+        { name: "Flutter", icon: FlutterIcon, color: "warning" },
+      ],
     },
     {
       icon: Database,
@@ -119,9 +139,9 @@ const SkillsSection = () => {
         { name: "PostgreSQL", icon: PostgreSQLIcon, color: "primary" },
         { name: "SQL Server", icon: SqlServerIcon, color: "secondary" },
         { name: "MongoDB", icon: MongoDbIcon, color: "success" },
-        { name: "Firebase DB", icon: FIrebaseIcon, color: "warning" }
-      ]
-    },  
+        { name: "Firebase DB", icon: FIrebaseIcon, color: "warning" },
+      ],
+    },
     {
       icon: Cloud,
       title: "DevOps & Cloud",
@@ -130,8 +150,8 @@ const SkillsSection = () => {
         { name: "Docker", icon: DockerIcon, color: "primary" },
         { name: "Kubernetes", icon: KubernetesIcon, color: "secondary" },
         { name: "GitHub Actions", icon: GithubActionsIcon, color: "success" },
-        { name: "Vercel", icon: VercelIcon, color: "warning" }
-      ]
+        { name: "Vercel", icon: VercelIcon, color: "warning" },
+      ],
     },
     {
       icon: Shield,
@@ -144,8 +164,8 @@ const SkillsSection = () => {
         { name: "Traefik", icon: TraefikIcon, color: "danger" },
         { name: "OpenID Connect", icon: OpenIDConnectIcon, color: "secondary" },
         { name: "Firebase Auth", icon: FirebaseAuthIcon, color: "success" },
-        { name: "Istio", icon: IstioIcon, color: "warning" }
-      ]
+        { name: "Istio", icon: IstioIcon, color: "warning" },
+      ],
     },
     {
       icon: BarChart3,
@@ -155,8 +175,8 @@ const SkillsSection = () => {
         { name: "Grafana", icon: GrafamaIcon, color: "primary" },
         { name: "Prometheus", icon: PrometheusIcon, color: "secondary" },
         { name: "Loki", icon: LokiIcon, color: "success" },
-        { name: "Jaeger", icon: JaeguerIcon, color: "warning" }
-      ]
+        { name: "Jaeger", icon: JaeguerIcon, color: "warning" },
+      ],
     },
     {
       icon: MessageSquare,
@@ -169,10 +189,10 @@ const SkillsSection = () => {
         { name: "gRPC", icon: GRPCIcon, color: "warning" },
         { name: "Socket.IO", icon: SocketIOIcon, color: "danger" },
         { name: "Apache Camel", icon: CamelIcon, color: "success" },
-        { name: "Redis Pub/Sub", icon: RedisIcon, color: "warning" }
-      ]
-    }
-  ]
+        { name: "Redis Pub/Sub", icon: RedisIcon, color: "warning" },
+      ],
+    },
+  ];
 
   return (
     <section id="skills" className="py-20 px-4 bg-white">
@@ -188,13 +208,14 @@ const SkillsSection = () => {
             Stack <span className="gradient-text">Tecnológico</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Dominio de tecnologías modernas para crear soluciones robustas y escalables
+            Dominio de tecnologías modernas para crear soluciones robustas y
+            escalables
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
           {skillCategories.map((category, categoryIndex) => {
-            const Icon = category.icon
+            const Icon = category.icon;
             return (
               <motion.div
                 key={`skill-category-${category.title}`}
@@ -206,28 +227,37 @@ const SkillsSection = () => {
                 <Card className="h-full shadow-xl hover:shadow-2xl transition-all duration-300 border-0 group hover:scale-105">
                   <CardBody className="p-6">
                     <div className="flex items-center gap-3 mb-6">
-                      <div className={`p-3 rounded-full bg-gradient-to-r ${category.color} group-hover:scale-110 transition-transform duration-300`}>
+                      <div
+                        className={`p-3 rounded-full bg-gradient-to-r ${category.color} group-hover:scale-110 transition-transform duration-300`}
+                      >
                         <Icon className="w-6 h-6 text-white" />
                       </div>
-                      <h3 className="text-xl font-bold text-gray-800">{category.title}</h3>
+                      <h3 className="text-xl font-bold text-gray-800">
+                        {category.title}
+                      </h3>
                     </div>
-                    
+
                     <div className="space-y-4">
                       {category.skills.map((skill, skillIndex) => {
-                        const SkillIcon = skill.icon
+                        const SkillIcon = skill.icon;
                         return (
                           <motion.div
                             key={`${category.title}-${skill.name}-${skillIndex}`}
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6, delay: (categoryIndex * 0.1) + (skillIndex * 0.05) }}
+                            transition={{
+                              duration: 0.6,
+                              delay: categoryIndex * 0.1 + skillIndex * 0.05,
+                            }}
                             viewport={{ once: true }}
                           >
                             <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 group">
                               <div className="w-8 h-8 flex items-center justify-center">
                                 <SkillIcon className="w-full h-full" />
                               </div>
-                              <span className="text-gray-700 font-medium flex-1">{skill.name}</span>
+                              <span className="text-gray-700 font-medium flex-1">
+                                {skill.name}
+                              </span>
                               <Chip
                                 size="sm"
                                 color={skill.color}
@@ -238,13 +268,13 @@ const SkillsSection = () => {
                               </Chip>
                             </div>
                           </motion.div>
-                        )
+                        );
                       })}
                     </div>
                   </CardBody>
                 </Card>
               </motion.div>
-            )
+            );
           })}
         </div>
 
@@ -263,10 +293,13 @@ const SkillsSection = () => {
               <div className="relative z-10">
                 <div className="flex items-center justify-center gap-3 mb-6">
                   <Cpu className="w-8 h-8 text-white" />
-                  <h3 className="text-2xl font-bold text-white">ERP & Sistemas</h3>
+                  <h3 className="text-2xl font-bold text-white">
+                    ERP & Sistemas
+                  </h3>
                 </div>
                 <p className="text-gray-300 mb-6">
-                  Experiencia en integración y desarrollo con sistemas ERP empresariales y herramientas de gestión
+                  Experiencia en integración y desarrollo con sistemas ERP
+                  empresariales y herramientas de gestión
                 </p>
                 <div className="flex flex-wrap justify-center gap-3">
                   <Chip
@@ -306,7 +339,7 @@ const SkillsSection = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default SkillsSection
+export default SkillsSection;
