@@ -65,7 +65,7 @@ const HeroSection = () => {
         <motion.div variants={itemVariants} className="mb-8 relative">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-600 rounded-full blur-3xl opacity-30 animate-pulse"></div>
           <Avatar
-            src="/me.png"
+            src="/me.jpeg"
             className="w-40 h-40 mx-auto mb-6 ring-4 ring-white/50 shadow-2xl float relative z-10"
             name="Anthony Cochea"
           />

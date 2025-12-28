@@ -4,15 +4,15 @@
   "description": "Portfolio profesional de Anthony Cochea, Full Stack Developer especializado en React, Node.js, TypeScript y Go",
   "icons": [
     {
-      "src": "/me.png",
+      "src": "/me.jpeg",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/me.png", 
+      "src": "/me.jpeg",
       "sizes": "512x512",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any maskable"
     }
   ],
